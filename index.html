@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Robux Visual Simulator</title>
+
+<meta name="description" content="Simulator visual Robux untuk hiburan. Bukan Robux asli dan tidak terafiliasi dengan Roblox.">
+<meta name="robots" content="index, follow">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #121212;
+  width: 100%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.6);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+input, select {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+button {
+  background: #00c853;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00e676;
+}
+
+.result {
+  margin-top: 15px;
+  display: none;
+  text-align: center;
+}
+
+.loader {
+  color: #00e676;
+  font-weight: bold;
+}
+
+.success {
+  color: #00e676;
+  font-size: 18px;
+}
+
+.disclaimer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🎮 Robux Visual Simulator</h1>
+  <div class="subtitle">Simulasi visual • Hiburan • Bukan Robux asli</div>
+
+  <input type="text" id="username" placeholder="Username Roblox">
+
+  <select id="robux">
+    <option value="100">100 Robux</option>
+    <option value="500">500 Robux</option>
+    <option value="1000">1.000 Robux</option>
+    <option value="5000">5.000 Robux</option>
+  </select>
+
+  <button onclick="startSim()">Simulasikan</button>
+
+  <div class="result" id="result">
+    <div class="loader">⏳ Memproses...</div>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ Website ini hanya simulasi visual untuk hiburan.<br>
+    Tidak menghasilkan Robux asli dan tidak terafiliasi dengan Roblox.
+  </div>
+</div>
+
+<script>
+function startSim() {
+  const user = document.getElementById("username").value.trim();
+  const robux = document.getElementById("robux").value;
+  const result = document.getElementById("result");
+
+  if(user === "") {
+    alert("Masukkan username terlebih dahulu.");
+    return;
+  }
+
+  result.style.display = "block";
+  result.innerHTML = "<div class='loader'>⏳ Memproses...</div>";
+
+  setTimeout(() => {
+    result.innerHTML = `
+      <p>Username: <b>${user}</b></p>
+      <p>Robux: <b>${robux}</b></p>
+      <p class="success">✔ Simulasi berhasil</p>
+    `;
+  }, 2200);
+}
+</script>
+
+</body>
+</html>
